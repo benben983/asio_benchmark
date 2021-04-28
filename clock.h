@@ -1,12 +1,14 @@
 #pragma once
 
 
+
 #if defined(ASIO_WINDOWS)
 
 inline uint64_t high_res_clock()
 {
     LARGE_INTEGER i;
     QueryPerformanceCounter(&i);
+
     return i.QuadPart;
 }
 
@@ -16,6 +18,7 @@ inline uint64_t high_res_clock()
 {
     unsigned long low, high;
     __asm__ __volatile__("rdtsc" : "=a" (low), "=d" (high));
+
     return (((uint64_t)high) << 32) | low;
 }
 

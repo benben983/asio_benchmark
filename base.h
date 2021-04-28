@@ -1,20 +1,29 @@
 #pragma once
 
+
+
 #define ASIO_STANDALONE
 #define ASIO_HAS_STD_CHRONO
+
+
 
 #include <asio.hpp>
 #include <vector>
 #include <memory>
 
 
-struct noncopyable {
+
+struct noncopyable
+{
 protected:
-    noncopyable() {}
-    virtual ~noncopyable() {}
+
+	noncopyable(void)								{}
+	virtual ~noncopyable(void)						{}
+
 private:
-    noncopyable(const noncopyable&) = delete;
-    noncopyable& operator=(const noncopyable&) = delete;
-    noncopyable(noncopyable&&) = delete;
-    noncopyable& operator=(noncopyable&&) = delete;
+
+	noncopyable(const noncopyable&)					= delete;
+	noncopyable& operator=(const noncopyable&)		= delete;
+	noncopyable(noncopyable&&)						= delete;
+	noncopyable& operator=(noncopyable&&)			= delete;
 };
